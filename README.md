@@ -11,7 +11,7 @@ tests
 
 ## List of packages used
 - `sequelize`  helps you define your data models, relationships, and perform database operations using JavaScript.
--` sequelize-cli` provides commands to manage your database schema using migration scripts and generate model files.
+- `sequelize-cli` provides commands to manage your database schema using migration scripts and generate model files.
 - `mysql2`  is the MySQL driver that sequelize uses to communicate with the MySQL database server.
 
 ## Steps
