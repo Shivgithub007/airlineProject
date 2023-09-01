@@ -2,6 +2,9 @@ const express= require("express");
 
 const {PORT} = require("./config/serverConfig");
 
+const cityRepository=require("./repository/city-repository")
+
+
 const appandport=()=>{ 
     //Setting up the app
     const app=express();
@@ -11,8 +14,9 @@ const appandport=()=>{
     app.use(express.urlencoded({extended:true}));
 
     //setting up the port
-    app.listen(PORT,()=>{
+    app.listen(PORT,async ()=>{
         console.log(`Server is listening on port number ${PORT}`);
+        
     })
 }
 
