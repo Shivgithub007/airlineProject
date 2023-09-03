@@ -2,7 +2,7 @@ const {CityRepository}=require("../repository/index");
 
 class CityService{
     constructor(){
-        this.cityReopsitory=new CityRepository();
+        this.cityRepository=new CityRepository();
     }
 
     async createCity(data){
@@ -11,7 +11,7 @@ class CityService{
             return city
         }
         catch(error){
-            console.log(error);
+            // console.log(error);
             throw{error};
         }
     }

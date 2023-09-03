@@ -53,7 +53,7 @@ module.exports={PORT:process.env.PORT}
 
 ## Creating db using sequelize cli
 - Execute the command `npx sequilize db:create` into the src folder because the config folder is inside it only. => It will create a new database into your my sql (Database name is going to be taken by config.json file)
-- `npx sequelize model:generate --name City --attributes name:String` This command will create a table named (city) which is represented in modals and migeration folder.
+- `npx sequelize model:generate --name City --attributes name:String` This command will create a table named (city) and that table will contain a column (name as mentioned in the command) which is represented in modals and migeration folder.
 - If we want to make any changes in the table we have to make in both models and migeration files. Then only it will get reflected into the db.
 - `npx sequelize db:migerate` it will create a table into the database.
 - `npx sequelize db:migerate:undo`=> it will undo the latest changes done into the database not into the migeration files and models files.

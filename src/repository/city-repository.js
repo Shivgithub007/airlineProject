@@ -23,7 +23,8 @@ class cityRepository{
                 where:{
                     id:cityid,
                 }
-            })
+            });
+            return true;
         }catch(error){
             console.log("Error form the delete city");
             throw{error};
