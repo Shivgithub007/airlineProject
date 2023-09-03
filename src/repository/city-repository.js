@@ -34,12 +34,20 @@ class cityRepository{
 
     async updateCity(cityid,data){
         try{
-            const updatedCity=await City.update(data,{
-                where:{
-                    id:cityid
-                }
-            })
-            return updatedCity;
+            // Below commented code also works but didnt return an empty object
+            // const updatedCity=await City.update(data,{
+            //     where:{
+            //         id:cityid
+            //     }
+            // })
+            // return updatedCity;
+
+            // To get the updated data to we use the below approach
+            const city=await City.findByPk(cityid);
+            city.name=data.name;
+            await city.save();
+            return city;
+            console.log(data,cityid)
         }
         catch(error){
             console.log("Error form the update city");
