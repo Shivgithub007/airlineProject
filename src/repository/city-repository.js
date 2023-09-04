@@ -34,7 +34,7 @@ class cityRepository{
 
     async updateCity(cityid,data){
         try{
-            // Below commented code also works but didnt return an empty object
+            // Below commented code also works but didnt return the updated data
             // const updatedCity=await City.update(data,{
             //     where:{
             //         id:cityid
@@ -61,6 +61,17 @@ class cityRepository{
             return cityValue;
         }catch(error){
             console.log("Error form the get city");
+            throw{error};
+        }
+    }
+
+
+    async getAllCities(){
+        try{
+            const cities=await City.findAll();
+            return cities;
+        }catch(error){
+            console.log(error);
             throw{error};
         }
     }
