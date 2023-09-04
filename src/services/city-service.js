@@ -8,10 +8,10 @@ class CityService{
     async createCity(data){
         try{
             const city=await this.cityRepository.createCity(data);
-            return city
+            return city;
         }
         catch(error){
-            // console.log(error);
+            console.log(error);
             throw{error};
         }
     }
@@ -49,9 +49,9 @@ class CityService{
         }
     }
 
-    async getAllCities(){
+    async getAllCities(filter){
         try{
-            const cities= await this.cityRepository.getAllCities();
+            const cities= await this.cityRepository.getAllCities({name:filter.name});
             return cities;
         }catch(error){
             console.log(error);

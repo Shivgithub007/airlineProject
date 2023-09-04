@@ -1,7 +1,7 @@
 const {City}=require("../models/index.js");// model ke index.js ke andar sare models ka access hai.
                                            // uske andar orm code likha hua hai which is used to get access of the models and create the rows inside  the model namded city
 
-
+const {Op}=require("sequelize");
 
 // This class is accessing the City mode.
 class cityRepository{
@@ -11,7 +11,7 @@ class cityRepository{
             const city=await City.create({name});
             return city;
         }catch(error){
-            console.log('Error form teh create city');
+            console.log('Error from the create city');
             throw{error};
         }
     }
@@ -26,7 +26,7 @@ class cityRepository{
             });
             return true;
         }catch(error){
-            console.log("Error form the delete city");
+            console.log("Error from the delete city");
             throw{error};
         }
     }
@@ -66,8 +66,18 @@ class cityRepository{
     }
 
 
-    async getAllCities(){
+    async getAllCities(filter){
         try{
+            if(filter.name){
+                const cities=await City.findAll({
+                    where:{
+                        name:{
+                            [Op.startsWith]: filter.name
+                        }
+                    }
+                });
+                return cities;
+            }
             const cities=await City.findAll();
             return cities;
         }catch(error){

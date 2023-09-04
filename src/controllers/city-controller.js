@@ -6,6 +6,7 @@ const cityService=new CityService();
 const create= async (req,res)=>{
     try{
         const city=await cityService.createCity(req.body);
+        console.log(req.body);
         return res.status(201).json({
             data:city,
             success:true,
@@ -86,9 +87,10 @@ const update= async (req,res)=>{
     }
 }
 
+// To get all the cities and to filter the cities
 const getAll=async (req,res)=>{
     try{
-        const cities=await cityService.getAllCities();
+        const cities=await cityService.getAllCities(req.query);
         return res.status(200).json({
             data:cities,
             status:true,
