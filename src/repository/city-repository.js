@@ -1,7 +1,7 @@
 const {City}=require("../models/index.js");// model ke index.js ke andar sare models ka access hai.
                                            // uske andar orm code likha hua hai which is used to get access of the models and create the rows inside  the model namded city
 
-const {Op}=require("sequelize");
+const {Op}=require("sequelize");//It is used to apply filters
 
 // This class is accessing the City mode.
 class cityRepository{
